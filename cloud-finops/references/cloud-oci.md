@@ -41,12 +41,62 @@ OCI has pricing advantages in specific areas:
 
 ### Commitment Instruments
 
-| Type | Discount | Details |
+| Type | Term | Discount | Details |
+|---|---|---|---|
+| **Annual Universal Credits** | 1-4 years | 8-33% (scales with term and amount) | Prepaid credits consumed against usage |
+| **Monthly Universal Credits** | Monthly | 0-8% | Minimum monthly spend, no long-term lock-in |
+| **Pay-As-You-Go** | None | None | Flexible, no commitment |
+| **Support Rewards** | Ongoing | Credits earned | Reinvest support spending as service credits |
+
+#### Annual Universal Credits Detail
+
+Credits are consumed against OCI usage at discounted rates. Key mechanics:
+- Credits are prepaid — unused credits do not roll over past contract end
+- Overage beyond commitment is billed at list price (no discount)
+- Discount increases with commitment size and term length
+- Credits apply to most OCI services including compute, storage, database, and networking
+
+**Representative discount ranges:**
+
+| Annual Commitment | 1-Year Term | 3-Year Term | 4-Year Term |
+|---|---|---|---|
+| $10K-$50K | 8-12% | 15-20% | 20-25% |
+| $50K-$500K | 12-18% | 20-28% | 25-30% |
+| $500K+ | 18-25% | 25-30% | 28-33% |
+
+*Exact discounts are negotiated. Larger commitments and longer terms yield higher discounts.*
+
+#### Commitment Strategy
+
+| Workload Pattern | Recommended Instrument | Rationale |
 |---|---|---|
-| **Annual Universal Credits** | Based on commitment amount | Minimum $1K/year spend commitment |
-| **Pay-As-You-Go** | None | Flexible, no commitment |
-| **Monthly Flex** | Volume-based | Minimum monthly spend |
-| **Support Rewards** | Credits for support spending | Reinvest support costs |
+| Steady-state production | Annual Universal Credits (3-4 year) | Maximum discount for predictable spend |
+| Growing but predictable | Annual Universal Credits (1 year) | Lock in discount, re-evaluate at renewal |
+| Variable/seasonal | Monthly Universal Credits | Flexibility with modest discount |
+| Experimental/dev | Pay-As-You-Go | No commitment risk for uncertain workloads |
+| Oracle DB-heavy with licenses | Annual Universal Credits + BYOL | Stack BYOL savings on top of credit discount |
+
+**Coverage strategy:**
+1. Calculate baseline monthly spend from 3-6 months of usage data
+2. Commit to 70-80% of baseline — leave headroom for workload changes
+3. Factor BYOL savings separately (they reduce the usage credits consume)
+4. Negotiate term length based on confidence in workload stability
+5. Review credit burn rate quarterly — adjust at renewal
+
+**Common mistakes:**
+- Committing to 100% of current spend (no room for optimization or workload reduction)
+- Ignoring BYOL impact on credit consumption (overcommitting)
+- Choosing 4-year term without workload stability confidence
+- Not tracking credit burn rate (discovering overcommitment at contract end)
+- Treating overage at list price as acceptable (it erodes the commitment discount)
+
+#### Utilization Targets
+
+| Metric | Poor | Acceptable | Good | Excellent |
+|---|---|---|---|---|
+| Credit utilization | <60% | 60-75% | 75-90% | 90-98% |
+| Overage rate | >20% | 10-20% | 5-10% | <5% |
+| BYOL coverage | Not tracked | Partial inventory | 80%+ applied | Full optimization |
 
 ## Service-Level Optimization
 
@@ -157,7 +207,8 @@ tag defaults and IAM policies.
 
 - [ ] Cost Analysis reviewed regularly
 - [ ] Budgets set per compartment
-- [ ] Annual Universal Credits if committed spend exists
+- [ ] Annual Universal Credits sized to 70-80% of baseline spend
+- [ ] Credit burn rate tracked quarterly
 - [ ] Data transfer advantage leveraged (10 TB free egress)
 - [ ] Autonomous Database used where applicable
 - [ ] ARM (A1) instances used for compatible workloads
