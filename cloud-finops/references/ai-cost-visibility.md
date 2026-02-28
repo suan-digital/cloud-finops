@@ -83,6 +83,47 @@ One enterprise's AI cost journey:
 | Data transfer | - | $4,000/month | "Networking" |
 | **Total** | **$5,000/month** | **$45,000/month** | **9x budget** |
 
+## Per-Model Cost Tracking Across Platforms
+
+Model selection is the single largest AI cost lever — the spread between tiers can be 10-50x.
+But most organizations can't answer "what do we spend per model?" because each platform
+reports costs differently.
+
+### Platform Visibility Capabilities
+
+| Platform | Native Dashboard | Per-Model Breakdown | Cost Allocation Mechanism | Programmatic Access |
+|---|---|---|---|---|
+| OpenAI API | Usage dashboard — daily/model/project view | By model, API key, and project | Filter by API key and project ID | Usage API + Costs API endpoints |
+| Anthropic API | Console usage page by model and workspace | By model, workspace, API key | Group by workspace or API key | Usage and Cost Report API (`/v1/organizations/cost_report`) |
+| AWS Bedrock | CloudWatch metrics + Cost Explorer | Via Application Inference Profiles (AIPs) | Cost allocation tags on inference profiles | CloudWatch Logs Insights, CUR |
+| Azure OpenAI | Azure Cost Management per-meter billing | Separate billing meters per model (input/output) | Resource groups, tags, subscriptions | Azure Cost Management API |
+| Google Vertex AI | Cloud Billing reports with label filtering | By SKU in billing; token metadata per response | Labels on API requests | BigQuery billing export |
+
+### The Cross-Platform Problem
+
+Most organizations use multiple AI platforms (see Pattern 3 above). No single provider dashboard
+shows total AI spend. The practical fix:
+
+1. **Normalize the unit.** Track cost-per-1K-tokens across all providers in a single currency.
+   Provider pricing pages define the rates — build a lookup table and apply it to logged usage.
+
+2. **Log at the request level.** Every API call should capture: provider, model, input tokens,
+   output tokens, latency, estimated cost, and a business tag (feature, team, or customer).
+
+3. **Centralize in one view.** Aggregate provider billing exports and request-level logs into
+   a single dashboard — Datadog, Grafana, or a data warehouse query. The observability platforms
+   now offer native integrations for OpenAI, Anthropic, and cloud AI services.
+
+4. **Compare model economics.** Same task across different models reveals where you're
+   overspending. The "cheap" model at high volume often exceeds the "expensive" model used
+   sparingly.
+
+**What cross-platform tracking reveals:**
+- Which models actually drive the most spend (often surprising)
+- Token consumption patterns that inform model routing decisions (see `inference-economics.md`)
+- Cost anomalies that single-provider dashboards surface days later
+- The true cost-per-feature when a feature calls multiple providers
+
 ## Assessment Framework
 
 ### Visibility Maturity Levels
@@ -103,6 +144,7 @@ One enterprise's AI cost journey:
 5. **How many separate AI tools/platforms are in use across the organization?**
 6. **Is there a single person or team who can answer "what's our total AI spend?"**
 7. **Are storage costs for AI artifacts (embeddings, vectors, logs) tracked separately?**
+8. **Can they break down API spend by model across all providers in a single view?**
 
 ### Building AI Cost Visibility
 
