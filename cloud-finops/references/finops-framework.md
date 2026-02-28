@@ -5,23 +5,25 @@ financial management. This reference covers the complete framework structure.
 
 ## Six FinOps Principles
 
-1. **Teams need to collaborate** — Finance, engineering, product, and business teams work
+1. **Teams need to collaborate** — Finance, technology, product, and leadership teams work
    together in near-real time. Silos create waste.
 
-2. **Business value drives decisions** — Unit economics and business value metrics drive
-   spending decisions, not just cost reduction. Cheapest isn't always best.
+2. **Business value drives technology decisions** — Unit economics and business value metrics
+   drive spending decisions, not just cost reduction. Cheapest isn't always best.
 
-3. **Everyone takes ownership** — Engineers, not just finance, own their cloud usage and cost.
-   Ownership at the point of decision is essential.
+3. **Everyone takes ownership for their technology usage** — Engineers, not just finance, own
+   their cloud usage and cost. Cost is a first-class efficiency metric from the start of the
+   development lifecycle. Ownership at the point of decision is essential.
 
-4. **FinOps data should be accessible and timely** — Fast feedback enables better decisions.
-   Data must be fresh, accurate, and available to all stakeholders.
+4. **FinOps data should be accessible, timely, and accurate** — Fast feedback enables better
+   decisions. Data must be fresh, accurate, and available to all stakeholders.
 
-5. **A centralized team drives FinOps** — A central FinOps function enables and evangelizes
-   best practices. It facilitates, not gatekeeps.
+5. **FinOps should be enabled centrally** — A central FinOps function enables and evangelizes
+   best practices. It facilitates, not gatekeeps. The emphasis is on enabling the organization,
+   not driving from the center.
 
-6. **Take advantage of the variable cost model** — Cloud's pay-as-you-go model is an
-   opportunity, not just a billing mechanism. Design for variability.
+6. **Take advantage of the variable cost model of the cloud** — Cloud's pay-as-you-go model
+   is an opportunity, not just a billing mechanism. Design for variability and agile iteration.
 
 ## Three Phases
 
