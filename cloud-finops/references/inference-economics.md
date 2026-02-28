@@ -28,17 +28,23 @@ And larger models don't always perform better for specific tasks.
 
 ### Pricing Tiers
 
-Model tiers span orders of magnitude in cost:
+Model tiers span orders of magnitude in cost. Representative API pricing as of early 2026:
 
-| Model Tier | Best For |
-|---|---|
-| Small (7-8B) | Classification, formatting, simple extraction |
-| Mid-tier (30-70B) | Summarization, standard generation, analysis |
-| Frontier (>100B) | Complex reasoning, novel generation |
-| Reasoning | Multi-step reasoning, math, code |
+| Tier | Example Models | Input $/1M tokens | Output $/1M tokens | Best For |
+|---|---|---|---|---|
+| Budget | GPT-4o Mini, Gemini 2.0 Flash | $0.10–0.15 | $0.40–0.60 | Classification, formatting, extraction |
+| Mid-range | Claude Haiku 4.5, Gemini 2.5 Pro, GPT-4o | $1.00–2.50 | $5.00–10.00 | Summarization, Q&A, analysis |
+| Frontier | Claude Sonnet 4.5, Claude Opus 4.6 | $3.00–15.00 | $15.00–75.00 | Complex reasoning, novel generation |
+| Reasoning | OpenAI o3 | $10.00 | $40.00 | Multi-step math, code, research |
 
-*Check provider pricing pages for current rates. The cost difference between tiers can be
-10-50x or more.* Routing intelligently captures most of that spread.
+*Prices shift frequently — verify against provider pricing pages before financial modeling.
+The structural pattern is durable: budget-to-frontier spans 100–150x on output tokens.*
+Routing intelligently captures most of that spread.
+
+**Reasoning token trap:** Reasoning models (OpenAI o-series, Claude extended thinking) consume
+internal "thinking" tokens billed as output tokens but invisible in API responses. A request
+producing 500 visible output tokens may consume 2,000–5,000+ total tokens. Factor 3–10x token
+overhead when budgeting reasoning model workloads.
 
 ## The Agentic Multiplier
 
