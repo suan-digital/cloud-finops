@@ -79,6 +79,35 @@ High-cardinality metrics and verbose logging provide insight at a cost.
 | Trace sampling (100% vs. 10%) | 10x difference in APM costs |
 | Log retention (90 days vs. 30 days) | 3x storage cost |
 
+**5. Multi-Region Architecture Decisions**
+
+Multi-region is one of the most expensive architectural choices — a 2-3x cost multiplier that
+compounds across every layer of the stack. Yet it's often adopted without a rigorous cost-vs-benefit
+analysis.
+
+| Driver | Justifies Multi-Region? | Cheaper Alternative to Evaluate First |
+|---|---|---|
+| Regulatory/data residency compliance | Yes — often mandatory | Confirm actual legal requirements (often narrower than assumed) |
+| Sub-50ms latency for global users | Usually yes | CDN + edge caching for read-heavy workloads |
+| Disaster recovery (RPO <1 hour) | Sometimes | Cross-region backups + automated restore (cheaper than active-active) |
+| High availability (99.99%+) | Rarely | Multi-AZ in a single region typically delivers 99.99% |
+| "We might need it someday" | No | Design for portability, deploy when justified |
+
+**Cost multiplier breakdown:**
+
+| Component | Multi-Region Multiplier | Notes |
+|---|---|---|
+| Compute | 2x+ | Duplicate instances in each region |
+| Database | 1.5-3x | Cross-region replication, conflict resolution |
+| Data transfer | $0.01-0.02/GB (AWS/Azure), $0.01-0.08/GB (GCP) | Continuous replication cost |
+| Load balancing | 1.5-3x | Global load balancer + regional balancers |
+| Operational overhead | 2-3x | Deployment complexity, testing, incident response |
+
+**Before committing to multi-region, quantify:**
+1. What is the cost of downtime per hour? If it's less than the annual multi-region premium, single-region + fast recovery is cheaper.
+2. What latency do users actually experience vs. require? Measure before assuming multi-region is needed.
+3. Can CDN, edge compute, or read replicas solve the problem at 10-20% of the cost?
+
 ### Design-Time Cost Patterns
 
 When reviewing architecture, assess these patterns:
@@ -174,6 +203,7 @@ When evaluating architecture-cost alignment, ask:
 6. What's the feedback loop time between cost decision and cost visibility?
 7. Are there documented architectural cost trade-offs in design docs?
 8. Does the team know which architectural decisions drive 80% of their spend?
+9. Was the multi-region decision justified with a cost-vs-downtime analysis?
 
 ## When NOT to Optimize
 
