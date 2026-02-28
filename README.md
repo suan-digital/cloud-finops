@@ -1,6 +1,6 @@
 # Cloud FinOps Agent Skill
 
-**Give any LLM structured FinOps domain knowledge.** 25 reference files covering cloud cost optimization, AI economics, and the FinOps Foundation framework — installable in one command.
+**Give any LLM structured FinOps domain knowledge.** Cloud cost optimization, AI economics, and the FinOps Foundation framework — installable in one command.
 
 ## Quick Start
 
@@ -17,16 +17,16 @@ See [INSTALLATION.md](INSTALLATION.md) for all installation methods (Claude Code
 
 Drop this skill into any LLM-powered development environment and it becomes a FinOps advisor that:
 
-1. **Asks before prescribing** — Structured intake protocol gathers context before analysis
-2. **Assesses maturity** — Shuhari (守破離) framework goes deeper than Crawl-Walk-Run
-3. **Routes by business problem** — "Our AI costs are out of control" triggers different references than "We need a commitment strategy"
-4. **Applies 8 analysis dimensions** — From FinOps practice assessment to GreenOps waste remediation
-5. **Outputs structured reports** — 9-section template that executives can forward to their CFO
-6. **Knows provider specifics** — AWS, Azure, GCP, OCI, plus AI providers and data platforms
+- **Asks before prescribing** — Structured intake protocol gathers context before analysis
+- **Assesses maturity** — Shuhari (守破離) framework goes deeper than Crawl-Walk-Run
+- **Routes by business problem** — "Our AI costs are out of control" triggers different references than "We need a commitment strategy"
+- **Applies 8 analysis dimensions** — From FinOps practice assessment to GreenOps waste remediation
+- **Outputs structured reports** — 9-section template that executives can forward to their CFO
+- **Knows provider specifics** — AWS, Azure, GCP, OCI, plus AI providers and data platforms
 
 ## Coverage
 
-### 25 Reference Files
+### Reference Files
 
 | Category | Files | Topics |
 |---|---|---|
@@ -40,16 +40,16 @@ Drop this skill into any LLM-powered development environment and it becomes a Fi
 
 ### 8 Analysis Dimensions
 
-| # | Dimension | Key Question |
-|---|---|---|
-| 1 | FinOps Practice Assessment | Which of 22 capabilities are gaps? |
-| 2 | Phase Positioning | Inform → Optimize → Operate — where stuck? |
-| 3 | Maturity Assessment | Shu / Ha / Ri — which stage? |
-| 4 | Architecture-Cost Alignment | Is cost a first-class design constraint? |
-| 5 | AI Cost Visibility | Is the 4-5x hidden cost known? |
-| 6 | Inference Economics | Model routing, caching, attribution? |
-| 7 | Waste Remediation | Which GreenOps fixes apply? |
-| 8 | Cost Visibility & Tooling | Can anyone query costs conversationally? |
+| Dimension | Key Question |
+|---|---|
+| FinOps Practice Assessment | Which of 22 capabilities are gaps? |
+| Phase Positioning | Inform → Optimize → Operate — where stuck? |
+| Maturity Assessment | Shu / Ha / Ri — which stage? |
+| Architecture-Cost Alignment | Is cost a first-class design constraint? |
+| AI Cost Visibility | Is the 4-5x hidden cost known? |
+| Inference Economics | Model routing, caching, attribution? |
+| Waste Remediation | Which GreenOps fixes apply? |
+| Cost Visibility & Tooling | Can anyone query costs conversationally? |
 
 ## What Makes This Different
 
@@ -87,7 +87,7 @@ cloud-finops-agent-skill/
 │   └── CONTRIBUTING.md     ← How to contribute
 └── cloud-finops/
     ├── SKILL.md            ← Entry point
-    └── references/         ← 25 domain reference files
+    └── references/         ← Domain reference files
 ```
 
 ## Contributing
