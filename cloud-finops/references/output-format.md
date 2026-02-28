@@ -1,4 +1,4 @@
-# Output Format — 9-Section Report Template
+# Output Format — 10-Section Report Template
 
 Structure your analysis as a report with these sections. Omit sections that don't apply (e.g.,
 skip AI sections if no AI workloads, skip GreenOps if explicitly out of scope).
@@ -61,7 +61,35 @@ Common anti-patterns to surface:
 - Buying commitments without understanding usage patterns (skipping Inform)
 - One-time cleanups that regress within months (Optimize without Operate)
 
-## Section 4: Architecture-Cost Findings
+## Section 4: Cost Visibility & Tooling Assessment
+
+Assess the organization's cost observability posture. This section bridges the gap between
+knowing the maturity stage (Section 2) and surfacing specific findings (Section 5).
+
+Cover:
+- **Current tool stack:** Which cost tools are in use? (Native only, third-party, shift-left,
+  AI-powered)
+- **Visibility gaps:** Where is cost data inaccessible, delayed, or not actionable?
+- **Attribution quality:** Can costs be traced to teams, services, features, and customers?
+- **Anomaly detection:** How fast from cost anomaly to investigation? Is there a response
+  protocol?
+- **Shift-left coverage:** Is cost visible at PR time or deployment time?
+- **FOCUS adoption:** (Multi-cloud) Is cost data normalized across providers?
+
+For each gap, structure as:
+
+| Gap | Business Impact | Recommendation | Maturity Fit | Effort |
+|---|---|---|---|---|
+| What's missing | Why it matters | What to adopt or improve | Shu/Ha/Ri appropriate? | S/M/L |
+
+**Example row:**
+| Engineers can't see service costs | Optimization bottlenecked through FinOps team | Deploy team-level cost dashboards using CUR data + Grafana | Ha — self-service visibility | M — 2 weeks |
+
+Align tooling recommendations with the organization's maturity stage — see
+`cost-visibility-tooling.md` for maturity-appropriate stacks and the tool selection decision
+tree.
+
+## Section 5: Architecture-Cost Findings
 
 For each significant finding, structure as a table:
 
@@ -84,7 +112,7 @@ For each significant finding, structure as a table:
 **Example row:**
 | 47 EC2 instances below 15% CPU utilization | $22K/month (12% of compute) | Reduced headroom for traffic spikes — validate auto-scaling before resizing | Implement target tracking ASG policies, right-size to m6i.xlarge | M — 2-3 weeks |
 
-## Section 5: Quick Wins (30 Days)
+## Section 6: Quick Wins (30 Days)
 
 Achievable within 30 days. Prioritize by savings-to-effort ratio. For each:
 
@@ -102,17 +130,17 @@ Target 3-7 quick wins. Each should be independently valuable — don't bundle.
 > - Effort: 2 hours, any engineer with AWS access
 > - Risk: Low — volumes have been unattached for 90+ days
 
-## Section 6: Strategic Roadmap (90 Days)
+## Section 7: Strategic Roadmap (90 Days)
 
 Three phases:
 
 ### Days 1-30: Foundation & Quick Wins
-- Execute quick wins from Section 5
+- Execute quick wins from Section 6
 - Establish baseline metrics
 - Set up cost anomaly alerting (if not present)
 
 ### Days 31-60: Structural Improvements
-- Implement the medium-effort findings from Section 4
+- Implement the medium-effort findings from Section 5
 - Establish or improve commitment coverage
 - Implement tagging governance (if gaps identified)
 - Integrate cost visibility into CI/CD (if appropriate for maturity)
@@ -128,7 +156,7 @@ Each item gets:
 - **Success metric:** How you'll know it worked
 - **Dependencies:** What must be complete first
 
-## Section 7: AI Recommendations
+## Section 8: AI Recommendations
 
 **Include only if AI workloads exist.**
 
@@ -143,7 +171,7 @@ Cover:
 
 Align recommendations with FinOps Foundation's FinOps for AI guidance.
 
-## Section 8: GreenOps Opportunities
+## Section 9: GreenOps Opportunities
 
 **Include only if sustainability is relevant or significant waste exists.**
 
@@ -156,7 +184,7 @@ Map applicable fixes from the 8-point GreenOps playbook. For each:
 Include carbon-aware computing opportunities if the organization has batch workloads suitable
 for time-shifting or region-shifting.
 
-## Section 9: Sources & Further Reading
+## Section 10: Sources & Further Reading
 
 List all referenced sources. Always include:
 
@@ -177,8 +205,8 @@ List all referenced sources. Always include:
 
 ## Formatting Guidelines
 
-- Use tables for structured findings (Section 4 especially)
-- Use bullet points for lists of actions (Sections 5, 6)
+- Use tables for structured findings (Section 5 especially)
+- Use bullet points for lists of actions (Sections 6, 7)
 - Use headers consistently — the report should be scannable
 - Bold key numbers and findings
 - Include confidence levels when making estimates based on incomplete data
