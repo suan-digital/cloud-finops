@@ -7,10 +7,15 @@ All notable changes to the Cloud FinOps Agent Skill will be documented in this f
 ### Changed
 
 - **BREAKING:** Moved skill directory from `cloud-finops/` to `skills/cloud-finops/` — standard skills.sh layout for automatic discovery
-- **BREAKING:** Replaced `install.sh` curl installer with `npx skills add suan-digital/cloud-finops-agent-skill`
+- **BREAKING:** Replaced `install.sh` curl installer with `npx skills add suan-digital/cloud-finops`
+- **BREAKING:** Renamed repository from `cloud-finops-agent-skill` to `cloud-finops` for cleaner install command
 - **SKILL.md** — Moved `license` to top-level frontmatter field; removed `spec` from metadata (implied by agentskills.io); version bump to 3.0.0
 - **INSTALLATION.md** — Rewritten: Method 1 is now `npx skills add` (recommended), removed curl installer method, added `npx skills update` and `npx skills remove`
 - **README.md** — Updated quick start to `npx skills add`, updated project structure tree
+
+### Added
+
+- `.claude-plugin/marketplace.json` — skills.sh marketplace declaration for plugin discovery
 
 ### Removed
 

@@ -7,7 +7,7 @@
 Works with Claude Code, Cursor, Codex, OpenCode, and 40+ other agents.
 
 ```bash
-npx skills add suan-digital/cloud-finops-agent-skill
+npx skills add suan-digital/cloud-finops
 ```
 
 The CLI auto-detects your agent and installs the skill to the correct location.

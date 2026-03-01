@@ -10,7 +10,7 @@ allowed-tools: Read
 metadata:
   version: 3.0.0
   author: Suan Digital (https://suan.digital)
-  homepage: https://github.com/suan-digital/cloud-finops-agent-skill
+  homepage: https://github.com/suan-digital/cloud-finops
 ---
 
 # Cloud FinOps Advisory Skill

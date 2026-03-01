@@ -5,7 +5,7 @@
 ## Quick Start
 
 ```bash
-npx skills add suan-digital/cloud-finops-agent-skill
+npx skills add suan-digital/cloud-finops
 ```
 
 Works with Claude Code, Cursor, Codex, OpenCode, and 40+ other agents. See [INSTALLATION.md](INSTALLATION.md) for all installation methods.
@@ -74,7 +74,7 @@ Try these after installation:
 ## Project Structure
 
 ```
-cloud-finops-agent-skill/
+cloud-finops/
 ├── README.md               ← You are here
 ├── INSTALLATION.md         ← Install methods
 ├── LICENSE.md              ← CC BY-SA 4.0
