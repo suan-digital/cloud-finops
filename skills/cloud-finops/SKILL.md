@@ -5,13 +5,12 @@ description: >
   framework. Covers AWS, Azure, GCP, OCI, AI inference, and data platforms (Databricks, Snowflake).
   Use for: cloud costs, cost optimization, cloud spend, AI costs, cloud bill, FinOps assessment,
   GreenOps, right-sizing, commitment strategy, tagging governance.
+license: CC BY-SA 4.0
 allowed-tools: Read
 metadata:
-  version: 2.1.0
+  version: 3.0.0
   author: Suan Digital (https://suan.digital)
-  license: CC BY-SA 4.0
   homepage: https://github.com/suan-digital/cloud-finops-agent-skill
-  spec: agentskills.io/1.0
 ---
 
 # Cloud FinOps Advisory Skill

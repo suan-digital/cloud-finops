@@ -22,8 +22,8 @@ Maintained by Suan Digital (https://suan.digital). Licensed CC BY-SA 4.0.
 
 ## File Structure
 
-All skill content lives in `cloud-finops/`:
-- `SKILL.md` — Entry point (Claude Code / agentskills.io spec)
+All skill content lives in `skills/cloud-finops/`:
+- `SKILL.md` — Entry point (agentskills.io spec)
 - `references/` — 25 domain reference files
 
 Each reference file should have:

@@ -5,13 +5,10 @@
 ## Quick Start
 
 ```bash
-# Install to your project's .claude/skills/ directory
-curl -sL https://raw.githubusercontent.com/suan-digital/cloud-finops-agent-skill/main/install.sh | bash
+npx skills add suan-digital/cloud-finops-agent-skill
 ```
 
-Or manually copy the `cloud-finops/` directory to your `.claude/skills/` folder.
-
-See [INSTALLATION.md](INSTALLATION.md) for all installation methods (Claude Code, Claude.ai projects, VS Code, API).
+Works with Claude Code, Cursor, Codex, OpenCode, and 40+ other agents. See [INSTALLATION.md](INSTALLATION.md) for all installation methods.
 
 ## What This Does
 
@@ -79,15 +76,15 @@ Try these after installation:
 ```
 cloud-finops-agent-skill/
 ├── README.md               ← You are here
-├── INSTALLATION.md         ← 6 install methods
+├── INSTALLATION.md         ← Install methods
 ├── LICENSE.md              ← CC BY-SA 4.0
 ├── CHANGELOG.md            ← Version history
-├── install.sh              ← One-liner installer
 ├── .github/
 │   └── CONTRIBUTING.md     ← How to contribute
-└── cloud-finops/
-    ├── SKILL.md            ← Entry point
-    └── references/         ← Domain reference files
+└── skills/
+    └── cloud-finops/
+        ├── SKILL.md        ← Entry point
+        └── references/     ← Domain reference files
 ```
 
 ## Contributing
