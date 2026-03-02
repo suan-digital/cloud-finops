@@ -1,0 +1,69 @@
+name: Content Monitoring
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # Every Monday at 9am UTC
+  workflow_dispatch:
+    inputs:
+      update_baselines:
+        description: 'Update freshness baselines after review'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  content-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pyyaml requests
+
+      - name: Run coverage check
+        id: coverage
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/check-coverage.py | tee coverage-report.md
+        continue-on-error: true
+
+      - name: Run freshness check
+        id: freshness
+        if: inputs.update_baselines != true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/check-freshness.py | tee -a coverage-report.md
+        continue-on-error: true
+
+      - name: Update baselines
+        if: inputs.update_baselines == true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/check-freshness.py --update-baselines
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .content-baselines.json
+          git commit -m "chore: update content freshness baselines" || echo "No changes to commit"
+          git push
+
+      - name: Create issue on failure
+        if: steps.coverage.outcome == 'failure' || steps.freshness.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('coverage-report.md', 'utf8');
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Content Monitoring Alert — ${new Date().toISOString().slice(0, 10)}`,
+              body: `The weekly content monitoring check detected issues.\n\n${report}\n\n_This issue was created automatically by the content-monitoring workflow._`,
+              labels: ['finops-framework', 'automated']
+            });

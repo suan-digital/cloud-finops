@@ -35,8 +35,8 @@ For use in Claude.ai project knowledge:
 
 **Note:** Claude.ai has file size limits. If you hit limits, prioritize uploading:
 - `SKILL.md` (required — entry point)
-- `intake-protocol.md`, `output-format.md`, `advisory-methodology.md` (core methodology)
-- Provider-specific files relevant to your environment
+- `references/capabilities/` files relevant to your situation
+- `references/personas.md` for persona context
 
 ## Method 3: API / System Prompt
 
@@ -64,43 +64,11 @@ message = client.messages.create(
 For reference files, load them dynamically based on the routing table in SKILL.md,
 or include the most relevant ones in your system prompt.
 
-## Verifying Installation
-
-After installation, verify all files are present:
+## Verify
 
 ```bash
-# Count reference files
 find .claude/skills/cloud-finops -name "*.md" | wc -l
-
-# List all reference files
-ls .claude/skills/cloud-finops/references/
+# Should list all skill markdown files
 ```
 
-Expected reference files:
-```
-adaptation-patterns.md cloud-gcp.md sustainability-playbook.md
-ai-anthropic.md cloud-oci.md inference-economics.md
-ai-azure-openai.md cost-visibility-tooling.md intake-protocol.md
-ai-bedrock.md data-databricks.md output-format.md
-ai-cost-visibility.md data-snowflake.md maturity-model.md
-ai-value-governance.md file-analysis.md advisory-methodology.md
-ai-vertex.md finops-framework.md tagging-governance.md
-architecture-cost.md genai-capacity.md
-cloud-aws.md cloud-azure.md
-```
-
-## Testing the Installation
-
-Try these prompts to verify the skill is loaded:
-
-1. **"Assess our FinOps maturity"**
- - Should trigger the intake protocol (asking questions before analysis)
- - Should reference the maturity model
-
-2. **"Our AWS bill is $80K/month, too high"**
- - Should ask intake questions about environment and architecture
- - Should eventually reference AWS-specific optimization patterns
-
-3. **"AI inference costs are out of control"**
- - Should trigger AI-specific intake questions
- - Should reference inference economics and AI cost visibility
+Test with: **"Assess our FinOps maturity"** — should trigger intake questions before analysis.

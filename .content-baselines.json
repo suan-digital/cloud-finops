@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-03-02T11:39:32.552276+00:00",
+  "framework_repo": {
+    "tree_sha": "cf31432a637548c85434270dfd9323cc69383326",
+    "capabilities_files": [
+      "analysis-showback",
+      "asset-management",
+      "budget-management",
+      "chargeback",
+      "cost-allocation",
+      "data-normalization",
+      "decision-accountability-structure",
+      "education-enablement",
+      "establish-finops-culture",
+      "forecasting",
+      "manage-anomalies",
+      "manage-commitment-based-discounts",
+      "manage-shared-cloud-costs",
+      "measure-unit-costs",
+      "onboarding-workloads",
+      "policy-governance",
+      "utilization-efficiency",
+      "workload-management-automation"
+    ],
+    "domains_files": [
+      "cloud-rate-optimization",
+      "cloud-usage-and-cost",
+      "cloud-usage-optimization",
+      "organizational-alignment",
+      "real-time-decision-making",
+      "tracking-and-benchmarking"
+    ],
+    "personas_hash": "sha256:a83530e88dd837ddc8ab4c01b451e1eb1e3b2c22d6a4cca7e74c0a04610fb8c1"
+  },
+  "focus_repo": {
+    "latest_release": "1.3",
+    "working_draft_commit": "f9fc86b9bfa0",
+    "working_draft_date": "2026-02-26"
+  },
+  "kpis_repo": {
+    "latest_commit": "0f8fae48e779",
+    "latest_commit_date": "2023-04-08"
+  }
+}

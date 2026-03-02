@@ -5,13 +5,13 @@
     "email": "github@suan.digital"
   },
   "metadata": {
-    "description": "Cloud & AI FinOps advisory skill. Structured cost optimization using the FinOps Foundation framework.",
-    "version": "3.0.0"
+    "description": "The FinOps Foundation framework transcribed and structured for AI agents. All domains, capabilities, FOCUS spec, and waste sensor KPIs.",
+    "version": "4.0.0"
   },
   "plugins": [
     {
       "name": "cloud-finops",
-      "description": "Cloud & AI FinOps advisory skill covering AWS, Azure, GCP, OCI, AI inference, and data platforms (Databricks, Snowflake)",
+      "description": "FinOps Foundation framework advisory skill — all domains, capabilities, FOCUS billing spec, waste sensors",
       "source": "./",
       "strict": false,
       "skills": ["./skills/cloud-finops"]

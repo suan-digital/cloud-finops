@@ -1,0 +1,255 @@
+# FinOps Framework Coverage Matrix
+# Maps FinOps Foundation framework elements (from finopsfoundation/framework repo)
+# to transcribed reference files. Used by scripts/check-coverage.py.
+
+framework_version: "2025-03"
+focus_version: "1.3"
+last_audit: "2026-03-02"
+
+# Domain/capability structure matches finopsfoundation/framework repo exactly.
+# Capability IDs match the filenames in _capabilities/ (the repo's canonical slugs).
+
+domains:
+  - id: cloud-usage-and-cost
+    name: "Understanding Cloud Usage and Cost"
+    covered_by: ["domains/cloud-usage-and-cost.md"]
+    capabilities:
+      - id: cost-allocation
+        name: "Cost Allocation (Metadata & Hierarchy)"
+        covered_by: ["capabilities/cost-allocation.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: analysis-showback
+        name: "Data Analysis and Showback"
+        covered_by: ["capabilities/analysis-showback.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: manage-shared-cloud-costs
+        name: "Managing Shared Cost"
+        covered_by: ["capabilities/manage-shared-cloud-costs.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: data-normalization
+        name: "Data Ingestion & Normalization"
+        covered_by: ["capabilities/data-normalization.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: manage-anomalies
+        name: "Managing Anomalies"
+        covered_by: ["capabilities/manage-anomalies.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: forecasting
+        name: "Forecasting"
+        covered_by: ["capabilities/forecasting.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: measure-unit-costs
+        name: "Measuring Unit Costs"
+        covered_by: ["capabilities/measure-unit-costs.md"]
+        coverage: full
+        crawl_walk_run: true
+
+  - id: tracking-and-benchmarking
+    name: "Performance Tracking & Benchmarking"
+    covered_by: ["domains/tracking-and-benchmarking.md"]
+    capabilities:
+      - id: measure-unit-costs
+        name: "Measuring Unit Costs"
+        covered_by: ["capabilities/measure-unit-costs.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: manage-commitment-based-discounts
+        name: "Managing Commitment Based Discounts"
+        covered_by: ["capabilities/manage-commitment-based-discounts.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: utilization-efficiency
+        name: "Resource Utilization & Efficiency"
+        covered_by: ["capabilities/utilization-efficiency.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: forecasting
+        name: "Forecasting"
+        covered_by: ["capabilities/forecasting.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: budget-management
+        name: "Budget Management"
+        covered_by: ["capabilities/budget-management.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: manage-anomalies
+        name: "Managing Anomalies"
+        covered_by: ["capabilities/manage-anomalies.md"]
+        coverage: full
+        crawl_walk_run: true
+
+  - id: real-time-decision-making
+    name: "Real-Time Decision Making"
+    covered_by: ["domains/real-time-decision-making.md"]
+    capabilities:
+      - id: manage-anomalies
+        name: "Managing Anomalies"
+        covered_by: ["capabilities/manage-anomalies.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: decision-accountability-structure
+        name: "Establishing a FinOps Decision & Accountability Structure"
+        covered_by: ["capabilities/decision-accountability-structure.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: measure-unit-costs
+        name: "Measuring Unit Costs"
+        covered_by: ["capabilities/measure-unit-costs.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: analysis-showback
+        name: "Data Analysis and Showback"
+        covered_by: ["capabilities/analysis-showback.md"]
+        coverage: full
+        crawl_walk_run: true
+
+  - id: cloud-rate-optimization
+    name: "Cloud Rate Optimization"
+    covered_by: ["domains/cloud-rate-optimization.md"]
+    capabilities:
+      - id: analysis-showback
+        name: "Data Analysis and Showback"
+        covered_by: ["capabilities/analysis-showback.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: manage-commitment-based-discounts
+        name: "Managing Commitment Based Discounts"
+        covered_by: ["capabilities/manage-commitment-based-discounts.md"]
+        coverage: full
+        crawl_walk_run: true
+
+  - id: cloud-usage-optimization
+    name: "Cloud Usage Optimization"
+    covered_by: ["domains/cloud-usage-optimization.md"]
+    capabilities:
+      - id: analysis-showback
+        name: "Data Analysis and Showback"
+        covered_by: ["capabilities/analysis-showback.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: onboarding-workloads
+        name: "Onboarding Workloads"
+        covered_by: ["capabilities/onboarding-workloads.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: utilization-efficiency
+        name: "Resource Utilization & Efficiency"
+        covered_by: ["capabilities/utilization-efficiency.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: workload-management-automation
+        name: "Workload Management & Automation"
+        covered_by: ["capabilities/workload-management-automation.md"]
+        coverage: full
+        crawl_walk_run: true
+
+  - id: organizational-alignment
+    name: "Organizational Alignment"
+    covered_by: ["domains/organizational-alignment.md"]
+    capabilities:
+      - id: establish-finops-culture
+        name: "Establishing FinOps Culture"
+        covered_by: ["capabilities/establish-finops-culture.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: manage-shared-cloud-costs
+        name: "Managing Shared Cost"
+        covered_by: ["capabilities/manage-shared-cloud-costs.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: chargeback
+        name: "Chargeback & Finance Integration"
+        covered_by: ["capabilities/chargeback.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: analysis-showback
+        name: "Data Analysis and Showback"
+        covered_by: ["capabilities/analysis-showback.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: budget-management
+        name: "Budget Management"
+        covered_by: ["capabilities/budget-management.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: education-enablement
+        name: "FinOps Education & Enablement"
+        covered_by: ["capabilities/education-enablement.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: decision-accountability-structure
+        name: "Establishing a FinOps Decision & Accountability Structure"
+        covered_by: ["capabilities/decision-accountability-structure.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: policy-governance
+        name: "Cloud Policy & Governance"
+        covered_by: ["capabilities/policy-governance.md"]
+        coverage: full
+        crawl_walk_run: true
+
+      - id: asset-management
+        name: "FinOps Intersection with other Frameworks"
+        covered_by: ["capabilities/asset-management.md"]
+        coverage: full
+        crawl_walk_run: true
+
+# Additional reference material (not part of domain/capability matrix but tracked)
+additional_references:
+  - id: personas
+    name: "FinOps Personas"
+    source: "finopsfoundation/framework/_data/personas.yml"
+    covered_by: ["personas.md"]
+
+  - id: focus-spec
+    name: "FOCUS Billing Specification"
+    source: "FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec"
+    version: "1.3"
+    covered_by: ["focus/overview.md"]
+
+  - id: kpi-definitions
+    name: "FinOps KPI Definitions"
+    source: "finopsfoundation/kpis"
+    covered_by: ["kpis/kpi-definitions.md"]
+
+  - id: waste-sensors
+    name: "Waste Sensor Definitions"
+    source: "finopsfoundation/kpis/waste-sensors"
+    covered_by: ["kpis/waste-sensors.md"]
+
+monitoring_sources:
+  framework_repo: "finopsfoundation/framework"
+  focus_repo: "FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec"
+  kpis_repo: "finopsfoundation/kpis"
